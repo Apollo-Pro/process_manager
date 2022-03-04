@@ -80,7 +80,7 @@ func (c *Manager) startProcWait() (*exec.Cmd, error) {
 //守护进程启动一个子进程, 并循环监视
 func (c *Manager) daemon() {
 	if c.Daemon {
-		c.listeningProcess()
+		c.listenerProcess()
 	} else {
 		c.startProcWait()
 	}

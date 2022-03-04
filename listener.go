@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func (c *Manager) listeningProcess() {
+func (c *Manager) listenerProcess() {
 	var t int64
 	count := 0
 	for {
@@ -38,7 +38,7 @@ func (c *Manager) listeningProcess() {
 }
 
 //监听退出信号
-func (c *Manager) listeningExit(callback func()) {
+func (c *Manager) listenerExit(callback func()) {
 	channel := make(chan os.Signal)
 	signal.Notify(channel, syscall.SIGHUP, syscall.SIGINT, syscall.SIGTERM, syscall.SIGQUIT)
 	go func() {

@@ -67,7 +67,7 @@ func (c *Manager) Start(callback func(pid int)) {
 		c.daemon()
 	} else {
 		c.saveMainPid(os.Getpid())
-		c.listeningExit(func() {
+		c.listenerExit(func() {
 			c.delPidFile(c.MainPidFile)
 		})
 		callback(os.Getpid())
