@@ -22,7 +22,7 @@ func (c *Manager) saveDaemonPid(pid int) {
 
 //保存pid
 func (c *Manager) savePid(pid int, pidFile string) {
-	file, err := os.OpenFile(pidFile, os.O_CREATE|os.O_WRONLY, 777)
+	file, err := os.OpenFile(pidFile, os.O_CREATE|os.O_WRONLY, 0664)
 	if err != nil {
 		c.logger.Fatalf("open file error: %s", err.Error())
 	}
