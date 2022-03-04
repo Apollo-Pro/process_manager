@@ -22,6 +22,7 @@ func main() {
 	processManager.MaxCount = 2  //最大重启次数
 	
  	startFunc := func(pid int) {
+		//程序入口代码
 		server(pid)
 	}
 
