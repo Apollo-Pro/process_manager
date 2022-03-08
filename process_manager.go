@@ -41,6 +41,9 @@ func New(background bool, serverName string, runtimePath string) *Manager {
 
 //初始化
 func (c *Manager) init() {
+	if err := os.MkdirAll(c.runtimePath, 0666); err != nil {
+		log.Fatalf(err.Error())
+	}
 	c.logger = c.Logger(c.runtimePath)
 	c.MainPidFile = fmt.Sprintf("%s/main.pid", c.runtimePath)
 	c.DaemonPidFile = fmt.Sprintf("%s/daemon.pid", c.runtimePath)
