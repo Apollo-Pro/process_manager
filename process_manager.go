@@ -10,7 +10,7 @@ import (
 )
 
 //版本号
-const VERSION = "1.0.1"
+const VERSION = "1.0.2"
 
 const (
 	PTYPE_START  = "start_process"  //启动进程
