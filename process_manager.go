@@ -10,7 +10,7 @@ import (
 )
 
 //版本号
-const VERSION = "1.0.2"
+const VERSION = "1.0.3"
 
 const (
 	PTYPE_START  = "start_process"  //启动进程
@@ -41,7 +41,7 @@ func New(background bool, serverName string, runtimePath string) *Manager {
 
 //初始化
 func (c *Manager) init() {
-	if err := os.MkdirAll(c.runtimePath, 0666); err != nil {
+	if err := os.MkdirAll(c.runtimePath, 0755); err != nil {
 		log.Fatalf(err.Error())
 	}
 	c.logger = c.Logger(c.runtimePath)
