@@ -7,6 +7,7 @@ import (
 	"flag"
 	ProcessManager "github.com/Apollo-Pro/process_manager"
 	"log"
+    "fmt"
 	"time"
 )
 
@@ -53,6 +54,20 @@ func main() {
 	processManager.Check(func(pid int) {
 		log.Printf("启动成功:%d", pid)
 	})
+
+	//kill 掉指定文件中记录的pid
+    killRet, err := processManager.KillProcess("./app.pid")
+    fmt.Println(killRet, err)
+
+    //判断pid是否存活
+    isExist := ProcessManager.PidExist(88888)
+    fmt.Println(isExist)
+
+    //干掉指定pid
+    killErr := ProcessManager.Kill(88888)
+    fmt.Println(killErr)
+
+}
 
 func server(pid int) {
 	log.Println(pid, "start...")

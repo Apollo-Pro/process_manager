@@ -87,7 +87,7 @@ func (c *Manager) DaemonProcessIsRunning() (bool, int) {
 	return IsRunning(c.getPid(c.DaemonPidFile))
 }
 
-//判断主进程是否运行中
+//判断进程是否运行中
 func IsRunning(pid int) (bool, int) {
 	if PidExist(pid) {
 		return true, pid
